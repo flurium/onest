@@ -17,19 +17,3 @@ import Layout from "../layouts/Layout.astro"
     <div class="inline-block" id="moving">onest</div>
   </section>
 </Layout>
-
-<style>
-  #moving {
-    white-space: nowrap;
-    animation: slide 12s linear infinite;
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-</style>

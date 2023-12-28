@@ -8,7 +8,9 @@
 <input type="checkbox" id="heroVideo" tabindex="-1" hidden />
 
 <div
-  class="bg-blue-500 fixed bottom-0 top-0 right-0 left-0 z-10 hidden grid-cols-1 grid-rows-[1fr_auto_1fr]"
+  class="bg-blue-500 fixed bottom-0 top-0 right-0 left-0
+  grid grid-cols-1 grid-rows-[1fr_auto_1fr] pointer-events-none
+  opacity-0 transition-opacity z-10 duration-200"
 >
   <label class="justify-self-end p-3 cursor-pointer" for="heroVideo">
     <svg
@@ -59,7 +61,13 @@
 </div>
 
 <style>
+  #heroVideo {
+    visibility: hidden;
+  }
+
   #heroVideo:checked + div {
-    display: grid;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: all;
   }
 </style>

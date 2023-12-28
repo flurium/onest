@@ -1,0 +1,23 @@
+<section
+  class="overflow-hidden flex leading-none mt-20
+    text-[20rem] md:text-[60rem] text-gray-200 font-bold"
+>
+  <div class="inline-block moving">onest</div>
+  <div class="inline-block moving">onest</div>
+</section>
+
+<style>
+  .moving {
+    white-space: nowrap;
+    animation: slide 12s linear infinite;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
