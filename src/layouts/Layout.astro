@@ -1,0 +1,65 @@
+---
+import "@fontsource-variable/onest"
+
+interface Props {
+  title: string
+  description: string
+}
+const { title, description } = Astro.props
+const url = Astro.url.href
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content="Onest Remake by Flurium" />
+    <meta property="og:url" content={url} />
+    <meta property="og:description" content={description} />
+    <!-- <meta property="og:image" content="https://www.flurium.com/og-image.png" /> -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:image:alt" content={title} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </head>
+  <body>
+    <header class="flex justify-between p-6 items-center">
+      <nav class="text-blue-500 flex gap-4 font-medium">
+        <a href="#">Română</a>
+        <a href="#">Русский</a>
+      </nav>
+
+      <a
+        href="https://fonts.google.com/specimen/Onest"
+        target="_blank"
+        class="py-3 px-6 rounded-lg bg-black inline-block text-white font-medium"
+      >
+        Donwload font
+      </a>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="py-20"></footer>
+  </body>
+</html>
+
+<style is:global>
+  *,
+  *:focus {
+    outline: none !important;
+  }
+</style>

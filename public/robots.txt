@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://onest.flurium.com/sitemap-index.xml

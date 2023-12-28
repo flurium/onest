@@ -1,0 +1,32 @@
+---
+import Hero from "../components/Hero.astro"
+import Layout from "../layouts/Layout.astro"
+---
+
+<Layout
+  title="Onest Font | Remake by Flurium"
+  description="Remake of Onest Font website made by Roman Koshchei as part of Flurium agency"
+>
+  <Hero />
+
+  <section class="overflow-hidden flex leading-none text-[60rem] text-gray-200 font-bold">
+    <div class="inline-block" id="moving">onest</div>
+    <div class="inline-block" id="moving">onest</div>
+  </section>
+</Layout>
+
+<style>
+  #moving {
+    white-space: nowrap;
+    animation: slide 12s linear infinite;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+</style>
