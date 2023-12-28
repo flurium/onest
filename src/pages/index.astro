@@ -1,5 +1,6 @@
 ---
 import Hero from "../components/Hero.astro"
+import Slider from "../components/Slider.astro"
 import Layout from "../layouts/Layout.astro"
 ---
 
@@ -9,11 +10,5 @@ import Layout from "../layouts/Layout.astro"
 >
   <Hero />
 
-  <section
-    class="overflow-hidden flex leading-none mt-20
-    text-[20rem] md:text-[60rem] text-gray-200 font-bold"
-  >
-    <div class="inline-block" id="moving">onest</div>
-    <div class="inline-block" id="moving">onest</div>
-  </section>
+  <Slider />
 </Layout>
