@@ -1,0 +1,53 @@
+<input type="radio" name="color" id="red" checked />
+<input type="radio" name="color" id="blue" />
+<input type="radio" name="color" id="green" />
+
+<span class="px-8"></span>
+
+<input type="radio" name="red" checked />
+<input type="radio" name="red" id="red2" />
+<input type="radio" name="red" id="red3" />
+
+<span class="px-8"></span>
+
+<input type="radio" name="blue" id="blue1" checked />
+<input type="radio" name="blue" id="blue2" />
+<input type="radio" name="blue" id="blue3" />
+
+<div class="flex overflow-hidden">
+  <div class="w-full flex-none"></div>
+  <div class="w-full flex-none"></div>
+  <div class="w-full flex-none"></div>
+
+  <div id="reds" class="w-full flex-none flex transition-transform relative">
+    <div class="bg-red-300 w-full h-60 flex-none"></div>
+    <div class="bg-red-500 w-full h-60 flex-none"></div>
+    <div class="bg-red-700 w-full h-60 flex-none"></div>
+  </div>
+
+  <div id="blues" class="w-full flex-none flex transition-transform relative">
+    <div id="blueTab1" class="bg-blue-300 w-full h-60 flex-none"></div>
+    <div id="blueTab2" class="bg-blue-500 w-full h-60 flex-none"></div>
+    <div id="blueTab3" class="bg-blue-700 w-full h-60 flex-none"></div>
+  </div>
+
+  <div id="greenTab1" class="bg-green-500 w-full h-60 flex-none"></div>
+</div>
+
+<style>
+  #red:checked ~ div #reds,
+  #blue:checked ~ div #blues,
+  #green:checked ~ div #greenTab1 {
+    order: -9999;
+  }
+
+  #red2:checked ~ div #reds,
+  #blue2:checked ~ div #blues {
+    transform: translateX(-100%);
+  }
+
+  #red3:checked ~ div #reds,
+  #blue3:checked ~ div #blues {
+    transform: translateX(-200%);
+  }
+</style>

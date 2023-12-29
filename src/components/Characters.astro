@@ -1,0 +1,133 @@
+---
+import Latin from "./characters/Latin.astro"
+import Cyrillic from "./characters/Cyrillic.astro"
+import Symbols from "./characters/Symbols.astro"
+import Drept from "./characters/Drept.astro"
+---
+
+<input type="radio" name="glyphs" id="latin" checked class="hidden" />
+<input type="radio" name="glyphs" id="cyrillic" class="hidden" />
+<input type="radio" name="glyphs" id="symbols" class="hidden" />
+
+<div class="flex overflow-hidden rounded-xl mx-6 relative">
+  <div
+    class="absolute top-6 left-6 md:left-8 right-6 md:right-auto text-blue-500
+    flex justify-between md:justify-normal md:gap-4 text-sm md:text-lg"
+    id="glyphLabels"
+  >
+    <label class="underline cursor-pointer" for="latin">Latin</label>
+    <label class="underline cursor-pointer" for="cyrillic"> Cyrillic</label>
+    <label class="underline cursor-pointer" for="symbols"> Numerals and Symbols</label>
+  </div>
+
+  <!-- Latin Slides navigation -->
+
+  <input type="radio" name="latinSlide" id="latin1" checked class="hidden" />
+  <label class="right-20 slider-radio" for="latin1">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <input type="radio" name="latinSlide" id="latin2" class="hidden" />
+  <label class="right-12 slider-radio" for="latin2">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <input type="radio" name="latinSlide" id="latin3" class="hidden" />
+  <label class="right-4 slider-radio" for="latin3">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <!-- Cyrillic Slides navigation -->
+
+  <input type="radio" name="cyrillicSlide" id="cyrillic1" checked class="hidden" />
+  <label class="right-20 slider-radio" for="cyrillic1">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <input type="radio" name="cyrillicSlide" id="cyrillic2" class="hidden" />
+  <label class="right-12 slider-radio" for="cyrillic2">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <input type="radio" name="cyrillicSlide" id="cyrillic3" class="hidden" />
+  <label class="right-4 slider-radio" for="cyrillic3">
+    <div class="rounded-full w-4 h-4 bg-gray-200"></div>
+  </label>
+
+  <!-- Safety sections -->
+  <div class="w-full flex-none"></div>
+  <div class="w-full flex-none"></div>
+  <div class="w-full flex-none"></div>
+
+  <div id="latinSlides" class="w-full flex-none flex transition-transform duration-500">
+    <Latin class="w-full flex-none text-8xl p-8 pt-20 bg-white" />
+
+    <p
+      class="w-full flex-none font-medium text-8xl flex items-end
+      p-8 pt-20 bg-zinc-900 text-white"
+      style="line-height: 1.2;"
+    >
+      Vând muzică de jazz și haine de bun-gust în New-York și Quebec la preț fix.
+    </p>
+
+    <div class="w-full flex-none flex items-center p-8 pt-20 bg-zinc-900">
+      <Drept class="w-full" />
+    </div>
+  </div>
+
+  <div
+    id="cyrillicSlides"
+    class="w-full flex-none flex transition-transform duration-500"
+  >
+    <Cyrillic class="w-full flex-none text-8xl p-8 pt-20 bg-white" />
+    <Cyrillic class="w-full flex-none text-7xl p-8 pt-20 bg-zinc-900 text-white" />
+    <Cyrillic class="w-full flex-none text-5xl p-8 pt-20 bg-zinc-900 text-white" />
+  </div>
+
+  <div id="symbolSlide" class="w-full flex-none">
+    <Symbols class="w-full text-8xl tracking-tighter p-8 pt-20 bg-white" />
+  </div>
+</div>
+
+<style>
+  /* glyphs */
+  #latin:checked ~ div [for="latin"],
+  #cyrillic:checked ~ div [for="cyrillic"],
+  #symbols:checked ~ div [for="symbols"] {
+    color: white;
+    mix-blend-mode: difference;
+    text-decoration-line: none;
+  }
+
+  #latin:checked ~ div #latinSlides,
+  #cyrillic:checked ~ div #cyrillicSlides,
+  #symbols:checked ~ div #symbolSlide {
+    order: -9999;
+  }
+
+  /* slides */
+  #latin2:checked ~ #latinSlides,
+  #cyrillic2:checked ~ #cyrillicSlides {
+    transform: translateX(-100%);
+  }
+
+  #latin3:checked ~ #latinSlides,
+  #cyrillic3:checked ~ #cyrillicSlides {
+    transform: translateX(-200%);
+  }
+
+  /* slides navigation */
+  .slider-radio {
+    @apply hidden absolute bottom-4 w-8 h-8 cursor-pointer place-content-center;
+  }
+
+  #latin:checked ~ div > .slider-radio[for^="latin"],
+  #cyrillic:checked ~ div > .slider-radio[for^="cyrillic"] {
+    display: grid;
+  }
+
+  input[name="latinSlide"]:checked + .slider-radio > div,
+  input[name="cyrillicSlide"]:checked + .slider-radio > div {
+    @apply border-4 border-blue-200 bg-blue-400 box-content;
+  }
+</style>
