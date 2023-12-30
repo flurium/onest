@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Onest Variable", "Onest", ...defaultTheme.fontFamily.sans],
+        sans: ["Onest", "Onest Variable", ...defaultTheme.fontFamily.sans],
       },
     },
   },
