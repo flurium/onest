@@ -2,6 +2,22 @@
 import Drept from "./characters/Drept.astro"
 import Straight from "./characters/Straight.astro"
 
+import LeftArrow from "./symbols/LeftArrow.astro"
+import RightArrow from "./symbols/RightArrow.astro"
+import SmallRightArrow from "./symbols/SmallRightArrow.astro"
+import SmallLeftArrow from "./symbols/SmallLeftArrow.astro"
+import RightBottomArrow from "./symbols/RightBottomArrow.astro"
+import LeftBottomArrow from "./symbols/LeftBottomArrow.astro"
+import RightTopArrow from "./symbols/RightTopArrow.astro"
+import LeftTopArrow from "./symbols/LeftTopArrow.astro"
+import ReturnArrow from "./symbols/ReturnArrow.astro"
+import RotateLeft from "./symbols/RotateLeft.astro"
+import RotateRight from "./symbols/RotateRight.astro"
+import Check from "./symbols/Check.astro"
+import P from "./symbols/P.astro"
+import Back from "./symbols/Back.astro"
+import Forward from "./symbols/Forward.astro"
+
 const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
 ---
 
@@ -73,7 +89,7 @@ const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
   <div id="latinSlides" class="w-full flex-none flex transition-transform duration-500">
     <p
       class:list={[
-        "w-full flex-none text-4xl md:text-8xl bg-white leading-5",
+        "w-full flex-none text-4xl md:text-8xl bg-white leading-5 inline-block",
         slidePadding,
       ]}
       style="line-height: 1.2;"
@@ -137,9 +153,22 @@ const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
     ]}
     style="line-height: 1.2; font-family: Onest, 'Onest Variable';"
   >
-    № • 0 1 2 3 4 5 6 7 8 9 % ⟵ ⟶ {"{ | }"} . , : ; … ! ? * ( / ) - – — _ [ \ ] , „ “ ” ‘ ’
-    ¢ $ € ₴ ₽ £ ¥ + − × ÷ = ≠ {"> <"} ≥ ≤ ± ≈ ~ ^ ↑ ↓ → ← ↘ ↗ ↙ ↖ ↩ ↶ ↷ ↺ ↻ ✓ # @ & §
-    © ℗ ® ™ ° « » ‹ › "'
+    № • 0 1 2 3 4 5 6 7 8 9 % <LeftArrow />
+    <RightArrow />
+    {"{ | }"} . , : ; … ! ? * ( / ) - – — _ [ \ ] , „ “ ” ‘ ’ ¢ $ € ₴ ₽ £ ¥ + − × ÷ = ≠ {
+      "> <"
+    } ≥ ≤ ± ≈ ~ ^ ↑ ↓ <SmallRightArrow />
+    <SmallLeftArrow />
+    <RightBottomArrow />
+    <RightTopArrow />
+    <LeftBottomArrow />
+    <LeftTopArrow />
+    <ReturnArrow />
+    <Back />
+    <Forward />
+    <RotateLeft />
+    <RotateRight />
+    <Check /> # @ & § © <P /> ® ™ ° « » ‹ › "'
   </p>
 </div>
 
