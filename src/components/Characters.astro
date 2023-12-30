@@ -5,54 +5,65 @@ import Straight from "./characters/Straight.astro"
 const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
 ---
 
-<input type="radio" name="glyphs" id="latin" checked class="hidden" />
-<input type="radio" name="glyphs" id="cyrillic" class="hidden" />
-<input type="radio" name="glyphs" id="symbols" class="hidden" />
-
 <div class="flex overflow-hidden rounded-xl mx-6 relative">
-  <div
-    class="absolute top-6 left-6 md:left-8 right-6 md:right-auto text-blue-500
-    flex justify-between md:justify-normal md:gap-4 text-sm md:text-lg"
-    id="glyphLabels"
-  >
-    <label class="underline cursor-pointer" for="latin">Latin</label>
-    <label class="underline cursor-pointer" for="cyrillic"> Cyrillic</label>
-    <label class="underline cursor-pointer" for="symbols"> Numerals and Symbols</label>
-  </div>
+  <input type="radio" name="glyphs" id="latin" checked class="hidden" />
+  <input type="radio" name="glyphs" id="cyrillic" class="hidden" />
+  <input type="radio" name="glyphs" id="symbols" class="hidden" />
 
   <!-- Latin Slides navigation -->
 
   <input type="radio" name="latinSlide" id="latin1" checked class="hidden" />
-  <label class="right-20 slider-radio" for="latin1">
+  <label class="right-20 slider-radio z-10" for="latin1">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
 
   <input type="radio" name="latinSlide" id="latin2" class="hidden" />
-  <label class="right-12 slider-radio" for="latin2">
+  <label class="right-12 slider-radio z-10" for="latin2">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
 
   <input type="radio" name="latinSlide" id="latin3" class="hidden" />
-  <label class="right-4 slider-radio" for="latin3">
+  <label class="right-4 slider-radio z-10" for="latin3">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
 
   <!-- Cyrillic Slides navigation -->
 
   <input type="radio" name="cyrillicSlide" id="cyrillic1" checked class="hidden" />
-  <label class="right-20 slider-radio" for="cyrillic1">
+  <label class="right-20 slider-radio z-10" for="cyrillic1">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
 
   <input type="radio" name="cyrillicSlide" id="cyrillic2" class="hidden" />
-  <label class="right-12 slider-radio" for="cyrillic2">
+  <label class="right-12 slider-radio z-10" for="cyrillic2">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
 
   <input type="radio" name="cyrillicSlide" id="cyrillic3" class="hidden" />
-  <label class="right-4 slider-radio" for="cyrillic3">
+  <label class="right-4 slider-radio z-10" for="cyrillic3">
     <div class="rounded-full w-4 h-4 bg-gray-200"></div>
   </label>
+
+  <!--  -->
+  <div
+    class="absolute top-6 left-6 md:left-8 right-6 md:right-auto text-blue-500
+    flex justify-between md:justify-normal md:gap-4 text-sm md:text-lg z-10"
+    id="glyphLabels"
+  >
+    <label
+      class="underline cursor-pointer transition-colors duration-300 md:duration-500"
+      for="latin"
+    >
+      Latin
+    </label>
+    <label
+      class="underline cursor-pointer transition-colors duration-300 md:duration-500"
+      for="cyrillic"
+    >
+      Cyrillic
+    </label>
+    <label class="underline cursor-pointer" for="symbols"> Numerals and Symbols</label>
+  </div>
 
   <!-- Safety sections -->
   <div class="w-full flex-none"></div>
@@ -134,18 +145,24 @@ const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
 
 <style>
   /* glyphs */
-  #latin:checked ~ div [for="latin"],
-  #cyrillic:checked ~ div [for="cyrillic"],
-  #symbols:checked ~ div [for="symbols"] {
-    color: white;
-    mix-blend-mode: difference;
+  #latin:checked ~ #glyphLabels [for="latin"],
+  #cyrillic:checked ~ #glyphLabels [for="cyrillic"],
+  #symbols:checked ~ #glyphLabels [for="symbols"] {
+    color: black;
     text-decoration-line: none;
   }
 
-  #latin:checked ~ div #latinSlides,
-  #cyrillic:checked ~ div #cyrillicSlides,
-  #symbols:checked ~ div #symbolSlide {
+  #latin:checked ~ #latinSlides,
+  #cyrillic:checked ~ #cyrillicSlides,
+  #symbols:checked ~ #symbolSlide {
     order: -9999;
+  }
+
+  #latin:checked ~ #latin2:checked ~ #glyphLabels label[for="latin"],
+  #latin:checked ~ #latin3:checked ~ #glyphLabels label[for="latin"],
+  #cyrillic:checked ~ #cyrillic2:checked ~ #glyphLabels label[for="cyrillic"],
+  #cyrillic:checked ~ #cyrillic3:checked ~ #glyphLabels label[for="cyrillic"] {
+    color: white;
   }
 
   /* slides */
@@ -164,8 +181,8 @@ const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
     @apply hidden absolute bottom-4 w-8 h-8 cursor-pointer place-content-center;
   }
 
-  #latin:checked ~ div > .slider-radio[for^="latin"],
-  #cyrillic:checked ~ div > .slider-radio[for^="cyrillic"] {
+  #latin:checked ~ .slider-radio[for^="latin"],
+  #cyrillic:checked ~ .slider-radio[for^="cyrillic"] {
     display: grid;
   }
 
