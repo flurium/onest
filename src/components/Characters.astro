@@ -1,8 +1,8 @@
 ---
-import Latin from "./characters/Latin.astro"
-import Cyrillic from "./characters/Cyrillic.astro"
-import Symbols from "./characters/Symbols.astro"
 import Drept from "./characters/Drept.astro"
+import Straight from "./characters/Straight.astro"
+
+const slidePadding = "px-6 pb-6 md:px-8 md:pb-6 pt-20"
 ---
 
 <input type="radio" name="glyphs" id="latin" checked class="hidden" />
@@ -60,18 +60,31 @@ import Drept from "./characters/Drept.astro"
   <div class="w-full flex-none"></div>
 
   <div id="latinSlides" class="w-full flex-none flex transition-transform duration-500">
-    <Latin class="w-full flex-none text-8xl p-8 pt-20 bg-white" />
+    <p
+      class:list={[
+        "w-full flex-none text-4xl md:text-8xl bg-white leading-5",
+        slidePadding,
+      ]}
+      style="line-height: 1.2;"
+    >
+      A Ă Â Ä B C Ç D E Ê F G H I İ J K L M N O Ö P Q R S Ș Ş T Ț Ţ U Ü V W X Y Z a ă â ä
+      b c ç d e ê f g h i j k l m n o ö p q r s ş ș t ț ţ u ü v w x y z
+    </p>
 
     <p
-      class="w-full flex-none font-medium text-8xl flex items-end
-      p-8 pt-20 bg-zinc-900 text-white"
+      class:list={[
+        `w-full flex-none font-medium text-4xl md:text-8xl flex items-end bg-zinc-900 text-white`,
+        slidePadding,
+      ]}
       style="line-height: 1.2;"
     >
       Vând muzică de jazz și haine de bun-gust în New-York și Quebec la preț fix.
     </p>
 
-    <div class="w-full flex-none flex items-center p-8 pt-20 bg-zinc-900">
-      <Drept class="w-full" />
+    <div class="w-full flex-none p-6 md:p-8 bg-zinc-900">
+      <div class="overflow-hidden flex items-center justify-center h-full">
+        <Drept class="w-full min-w-[28rem]" />
+      </div>
     </div>
   </div>
 
@@ -79,14 +92,44 @@ import Drept from "./characters/Drept.astro"
     id="cyrillicSlides"
     class="w-full flex-none flex transition-transform duration-500"
   >
-    <Cyrillic class="w-full flex-none text-8xl p-8 pt-20 bg-white" />
-    <Cyrillic class="w-full flex-none text-7xl p-8 pt-20 bg-zinc-900 text-white" />
-    <Cyrillic class="w-full flex-none text-5xl p-8 pt-20 bg-zinc-900 text-white" />
+    <p
+      class:list={["w-full flex-none text-4xl md:text-8xl bg-white", slidePadding]}
+      style="line-height: 1.2;"
+    >
+      А Б В Г Ґ Д Е Є Ё Ж Ӂ З И І Ї Й К Л М Н О П Р С Т У Ф Х Ц Ч Ш Щ Ъ Ы Ь Э Ю Я а б в г
+      ґ д е є ё ж ӂ з и і ї й к л м н о п р с т у ф х ц ч ш щ ъ ы ь э ю я
+    </p>
+
+    <p
+      class:list={[
+        "w-full flex-none text-4xl md:text-8xl bg-zinc-900 text-white",
+        slidePadding,
+      ]}
+      style="line-height: 1.2;"
+    >
+      Подъём с затонувшего эсминца легкобьющейся древнегреческой амфоры сопряжён с
+      техническими трудностями.
+    </p>
+
+    <div class="w-full flex-none p-6 md:p-8 bg-zinc-900">
+      <div class="overflow-hidden flex items-center justify-center h-full">
+        <Straight class="w-full min-w-[26rem]" />
+      </div>
+    </div>
   </div>
 
-  <div id="symbolSlide" class="w-full flex-none">
-    <Symbols class="w-full text-8xl tracking-tighter p-8 pt-20 bg-white" />
-  </div>
+  <p
+    id="symbolSlide"
+    class:list={[
+      "w-full flex-none text-4xl md:text-8xl tracking-tighter bg-white",
+      slidePadding,
+    ]}
+    style="line-height: 1.2;"
+  >
+    № • 0 1 2 3 4 5 6 7 8 9 % ⟵ ⟶ {"{ | }"} . , : ; … ! ? * ( / ) - – — _ [ \ ] , „ “ ” ‘ ’
+    ¢ $ € ₴ ₽ £ ¥ + − × ÷ = ≠ {"> <"} ≥ ≤ ± ≈ ~ ^ ↑ ↓ → ← ↘ ↗ ↙ ↖ ↩ ↶ ↷ ↺ ↻ ✓ # @ & §
+    © ℗ ® ™ ° « » ‹ › "'
+  </p>
 </div>
 
 <style>
